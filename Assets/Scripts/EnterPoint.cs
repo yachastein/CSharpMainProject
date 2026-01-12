@@ -7,6 +7,7 @@ using UnityEngine;
 using Utilities;
 
 // hello my name is Fedor
+// how are you
 public class EnterPoint : MonoBehaviour
 {
     [SerializeField] private Settings _settings;
