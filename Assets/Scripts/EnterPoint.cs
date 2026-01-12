@@ -8,6 +8,8 @@ using Utilities;
 
 // hello my name is Fedor
 // how are you
+// I am fine thank you
+// and you?
 public class EnterPoint : MonoBehaviour
 {
     [SerializeField] private Settings _settings;
