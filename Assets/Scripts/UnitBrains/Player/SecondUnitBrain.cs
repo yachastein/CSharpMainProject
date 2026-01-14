@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Codice.CM.Client.Differences.Merge;
 using Model.Runtime.Projectiles;
 using UnityEngine;
 
@@ -16,13 +17,31 @@ namespace UnitBrains.Player
         protected override void GenerateProjectiles(Vector2Int forTarget, List<BaseProjectile> intoList)
         {
             float overheatTemperature = OverheatTemperature;
+            
+
+            
+            
             ///////////////////////////////////////
             // Homework 1.3 (1st block, 3rd module)
-            ///////////////////////////////////////           
-            var projectile = CreateProjectile(forTarget);
-            AddProjectileToList(projectile, intoList);
-            ///////////////////////////////////////
+
+
+            int temperature = GetTemperature();
+             if (temperature >= overheatTemperature)
+            return;
+
+            IncreaseTemperature();
+
+             int projectilesCount = temperature + 1; 
+
+             for (int i = 0; i < projectilesCount; i++)
+            {
+             var projectile = CreateProjectile(forTarget);
+             AddProjectileToList(projectile, intoList);
+            Debug.Log($"Projectile {i + 1}/{projectilesCount} created toward {forTarget} with temperature {temperature}"); 
+            } 
         }
+            
+            ///////////////////////////////////////           
 
         public override Vector2Int GetNextStep()
         {
